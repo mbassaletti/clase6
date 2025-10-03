@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejemplo</title>
+    <style>
+      *{
+        margin:0 ; padding:0;
+      }
+      div#pipis{
+        width: 800px;
+        margin: 0 auto;
+        background:lightskyblue;
+      }
+      div#pipis div.destacado{
+        border: 1px black;
+        width: calc(46% - 2px);
+        padding:1%;
+        margin:1%;
+        float:left;
+      }
+      div#pipis div.fin{
+        width:100%;
+        clear: both;
+        background: khaki;
+      }
+    </style>
+  </head>
+  <body>
+
+      <div id="pipis"></div>
+
+    <script>
+
+      const trabajos = [
+        {
+          title: "trabajo fome",
+          design: "ux",
+          photo: "https://picsum.photos/id/237/200/300",
+          description: "es un trabajo."
+        },
+         {
+          title: "trabajo fome",
+          design: "destacado",
+          photo: "https://picsum.photos/id/237/200/300",
+          description: "es un trabajo."
+        },
+         {
+          title: "trabajo fome",
+          design: "ux",
+          photo: "https://picsum.photos/id/237/200/300",
+          description: "es un trabajo."
+        },
+      ];
+
+
+      const parrafos = document.querySelector("#pipis");
+        trabajos.forEach((v) => {
+         
+          parrafos.innerHTML += `
+            <div class="${v.category}">
+              <h1>${v.title}</h1>
+              <img src="${v.photo}" />
+              <p>${v.description}</p>
+            </div>`;
+          });
+
+      function emojis(n) {
+        var imprime = ""
+        for(var x = 0; x < n; x++){
+          imprime += "🏆"
+        }
+        return imprime;
+      }
+    </script>
+  </body>
+</html>
